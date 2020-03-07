@@ -10,7 +10,7 @@ function()
            
            
            
-            aura_env.output = "reflected "..target.."for "..amount.." damage!"
+            aura_env.output = "reflected "..target.."'s "..spell.. "for "..amount.." damage!"
         end
     end
     return aura_env.output
