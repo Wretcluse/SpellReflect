@@ -11,7 +11,7 @@ function(event, ...)
 
             aura_env.target = destName
             aura_env.spell = GetSpellLink(spellId)
-            aura_env.output = "reflected " .. aura_env.target .. "'s " .. aura_env.spell .. "for " .. aura_env.count .. "damage!"
+            aura_env.output = "reflected " .. aura_env.target .. "'s " .. aura_env.spell .. "for " .. aura_env.amount .. "damage!"
             return true
         end
     end
