@@ -13,7 +13,7 @@ function(event, ...)
             aura_env.spell = GetSpellLink(spellId)
             local amount = aura_env.ShortenNumber(aura_env.reflect[i][3])
 
-            aura_env.output = "reflected " .. aura_env.target .. "'s " .. aura_env.spell .. "for " .. aura_env.amount .. " damage!"
+            aura_env.output = "reflected " .. aura_env.target .. "'s " .. aura_env.spell .. " for " .. aura_env.amount .. " damage!"
             return true
         end
     end
