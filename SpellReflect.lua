@@ -9,9 +9,11 @@ function(event, ...)
 --CHECK IF YOU REFLECTED SOMETHING--
         elseif message == "SPELL_MISSED" and arg4 == "REFLECT" and (aura_env.config.showAll and true or destGUID == WeakAuras.myGUID) then
 
-            aura_env.target = destName
+            aura_env.target = aura_env.reflect[i][1]
             aura_env.spell = GetSpellLink(spellId)
-            aura_env.output = "reflected " .. aura_env.target .. "'s " .. aura_env.spell .. "for " .. aura_env.amount .. "damage!"
+            local amount = aura_env.ShortenNumber(aura_env.reflect[i][3])
+
+            aura_env.output = "reflected " .. aura_env.target .. "'s " .. aura_env.spell .. "for " .. aura_env.amount .. " damage!"
             return true
         end
     end
