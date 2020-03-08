@@ -13,7 +13,7 @@ function(event, ...)
                     then --check if missed event was before damage
                         aura_env.lastMissed = v[1]
                         local icon, name = GetSpellTexture(arg1), GetSpellInfo(arg1)-- CAN I USE GetSpellLink(spellId) ????
-                        table.insert(aura_env.reflect, {srcName, name, icon, arg4, arg6})
+                        table.insert(aura_env.reflect, {srcName, name, icon, arg4, arg6}) --arg4 is amount and arg6 is school
                         --srcName, name, icon, amount, school
                     end
                 end
@@ -27,8 +27,8 @@ function(event, ...)
                 aura_env.data["damage1st"][count] = aura_env.data["damage1st"][count] or {}
                 aura_env.data["damage1st"][count][1] = GetTime()
                 aura_env.data["damage1st"][count][2] = srcGUID
-                local icon, name = GetSpellTexture(arg1), GetSpellInfo(arg1)
-                aura_env.data["damage1st"][count][3] = {srcName, name, icon, arg4, arg6}
+                local icon, name = GetSpellTexture(arg1), GetSpellInfo(arg1)-- CAN I USE GetSpellLink(spellId) ????
+                aura_env.data["damage1st"][count][3] = {srcName, name, icon, arg4, arg6} --arg4 is amount and arg6 is school
                 --srcName, name, icon, amount, school
             end
 
