@@ -12,9 +12,8 @@ function(event, ...)
                     and (not aura_env.lastMissed or aura_env.lastMissed ~= v[1]) --for double reflects like shaman overload procs (sometimes happens)
                     then --check if missed event was before damage
                         aura_env.lastMissed = v[1]
-                        local icon, name = GetSpellTexture(arg1), GetSpellInfo(arg1)-- CAN I USE GetSpellLink(spellId) ????
-                        table.insert(aura_env.reflect, {srcName, name, icon, arg4, arg6}) --arg4 is amount and arg6 is school
-                        --srcName, name, icon, amount, school
+                        local name = GetSpellLink(arg1)
+                        table.insert(aura_env.reflect, {srcName, name, arg4, arg6}) --arg4 is amount and arg6 is school
                     end
                 end
                 aura_env.flag = true
@@ -27,9 +26,8 @@ function(event, ...)
                 aura_env.data["damage1st"][count] = aura_env.data["damage1st"][count] or {}
                 aura_env.data["damage1st"][count][1] = GetTime()
                 aura_env.data["damage1st"][count][2] = srcGUID
-                local icon, name = GetSpellTexture(arg1), GetSpellInfo(arg1)-- CAN I USE GetSpellLink(spellId) ????
-                aura_env.data["damage1st"][count][3] = {srcName, name, icon, arg4, arg6} --arg4 is amount and arg6 is school
-                --srcName, name, icon, amount, school
+                local name = GetSpellLink(arg1)
+                aura_env.data["damage1st"][count][3] = {srcName, name, arg4, arg6} --arg4 is amount and arg6 is school
             end
 
 --CHECK IF YOU REFLECTED SOMETHING--
