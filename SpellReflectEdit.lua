@@ -7,7 +7,7 @@ function(event, ...)
         if message == "SPELL_DAMAGE" and sourceGUID == destGUID then --CHECK IF SOMETHING IS SELF OWNED
             if next(aura_env.data["missed1st"]) then
                 for k, v in pairs(aura_env.data["missed1st"]) do
-                    if srcGUID == v[2]
+                    if sourceGUID == v[2]
                     and GetTime()-v[1] < 1.5
                     and (not aura_env.lastMissed or aura_env.lastMissed ~= v[1]) --for double reflects like shaman overload procs (sometimes happens)
                     then --check if missed event was before damage
@@ -25,7 +25,7 @@ function(event, ...)
                 end
                 aura_env.data["damage1st"][count] = aura_env.data["damage1st"][count] or {}
                 aura_env.data["damage1st"][count][1] = GetTime()
-                aura_env.data["damage1st"][count][2] = srcGUID
+                aura_env.data["damage1st"][count][2] = sourceGUID
                 local name = GetSpellLink(arg1)
                 aura_env.data["damage1st"][count][3] = {srcName, name, arg4, arg6} --arg4 is amount and arg6 is school
             end
@@ -34,7 +34,7 @@ function(event, ...)
         elseif message == "SPELL_MISSED" and arg4 == "REFLECT" and (true or destGUID == WeakAuras.myGUID) then
             if next(aura_env.data["damage1st"]) then
                 for k, v in pairs(aura_env.data["damage1st"]) do
-                    if srcGUID == v[2]
+                    if sourceGUID == v[2]
                     and GetTime()-v[1] < 1.5
                     and (not aura_env.lastDamage or aura_env.lastDamage ~= v[1]) --for double reflects like shaman overload procs (sometimes happens)
                     then --check if damage event was before missed
@@ -51,7 +51,7 @@ function(event, ...)
                 end
                 aura_env.data["missed1st"][count] = aura_env.data["missed1st"][count] or {}
                 aura_env.data["missed1st"][count][1] = GetTime()
-                aura_env.data["missed1st"][count][2] = srcGUID
+                aura_env.data["missed1st"][count][2] = sourceGUID
             end
         end
     end
