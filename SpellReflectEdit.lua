@@ -1,7 +1,7 @@
 function(event, ...)
     if event == "COMBAT_LOG_EVENT_UNFILTERED" then
         local tstamp, message, hideCaster, sourceGUID, srcName, srcFlags, srcRFlags, destGUID, destName, destFlags, destRFlags, _, _, _, spellId, spellName, _, _, extraSpellId, extraSpellName = ...
-        --tstamp, message, hideCaster, srcGUID, srcName, srcFlags, srcRFlags, destGUID, destName, destFlags, destRFlags, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10
+        --tstamp, message, hideCaster, sourceGUID, srcName, srcFlags, srcRFlags, destGUID, destName, destFlags, destRFlags, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10
         --if message == "SPELL_INTERRUPT" and sourceGUID == UnitGUID("player") then
 
         if message == "SPELL_DAMAGE" and sourceGUID == destGUID then --CHECK IF SOMETHING IS SELF OWNED
