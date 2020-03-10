@@ -12,7 +12,7 @@ function(event, ...)
                     and (not aura_env.lastMissed or aura_env.lastMissed ~= v[1]) --for double reflects like shaman overload procs (sometimes happens)
                     then --check if missed event was before damage
                         aura_env.lastMissed = v[1]
-                        local name = GetSpellLink(arg1)
+                        local name = GetSpellLink(arg1)--CHANGING THIS LINE AND BELOW SOMEHOW MESSES WITH THE AMOUNT
                         table.insert(aura_env.reflect, {srcName, name, arg4, arg6}) --arg4 is amount and arg6 is school
                     end
                 end
@@ -26,7 +26,7 @@ function(event, ...)
                 aura_env.data["damage1st"][count] = aura_env.data["damage1st"][count] or {}
                 aura_env.data["damage1st"][count][1] = GetTime()
                 aura_env.data["damage1st"][count][2] = sourceGUID
-                local name = GetSpellLink(arg1)
+                local name = GetSpellLink(arg1)--CHANGING THIS LINE AND BELOW SOMEHOW MESSES WITH THE AMOUNT
                 aura_env.data["damage1st"][count][3] = {srcName, name, arg4, arg6} --arg4 is amount and arg6 is school
             end
 
