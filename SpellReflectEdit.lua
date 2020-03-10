@@ -16,7 +16,7 @@ function(event, ...)
                         table.insert(aura_env.reflect, {srcName, name, arg4, arg6}) --arg4 is amount and arg6 is school
                     end
                 end
-                aura_env.flag = true
+--                aura_env.flag = true
                 return true
             else --damage event before missed
                 local count = 1
@@ -42,7 +42,7 @@ function(event, ...)
                         table.insert(aura_env.reflect, v[3])
                     end
                 end
-                aura_env.flag = true
+--                aura_env.flag = true
                 return true
             else --missed event before damage
                 local count = 1
